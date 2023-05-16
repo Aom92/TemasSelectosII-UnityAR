@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig>
   <Tracking>
+    <ImageTarget name="CDCover" size="1.000000 0.996094" />
     <ImageTarget name="escudofi_negro" size="1.000000 1.184290" />
   </Tracking>
 </QCARConfig>
