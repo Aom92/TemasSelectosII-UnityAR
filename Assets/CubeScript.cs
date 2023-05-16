@@ -3,25 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-// q? Generate random numbers in C#
-// https://stackoverflow.com/questions/2706500/generate-random-numbers-in-c-sharp
-
-
 public class CubeScript : MonoBehaviour
 {
-
     bool wasTouched = false;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-     
-    }
-
-
-
-
 
     // Update is called once per frame
     void Update()
@@ -39,7 +23,6 @@ public class CubeScript : MonoBehaviour
         }
 
     }
-    
 
     void Touch()
     {
@@ -51,9 +34,7 @@ public class CubeScript : MonoBehaviour
         //Obtenemos el componenete Renderer del cubo
         var cubeRenderer = this.GetComponent<Renderer>(); 
 
-
-        // Generamos valores aleatorios para el color.
-        
+        // Generamos valores aleatorios para el color.        
         float r = Random.value;
         float g = Random.value;
         float b = Random.value;
@@ -63,7 +44,6 @@ public class CubeScript : MonoBehaviour
         
         //Cambiamos el color del cubo
         cubeRenderer.material.SetColor("_Color", newColor);
-        
+     
     }
-
 }
