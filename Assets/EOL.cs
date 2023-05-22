@@ -8,12 +8,15 @@ public class EOL : MonoBehaviour
     public Transform StartPosition;
     public GameObject NextLevel;
     public GameObject ThisLevel;
+    public ParticleSystem victoryEffect;
     public bool isLastLevel = false;
+
+    private GameControl gameControlScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameControlScript = this.GetComponentInParent<GameControl>();
     }
 
     // Update is called once per frame
@@ -24,10 +27,11 @@ public class EOL : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        
         if (collision.gameObject.name == "Sphere")
         {
-
+            //Actualizar Puntuación. 
+            this.SendMessageUpwards("AddScore", 1);
+           
             if (!isLastLevel)
             {
                 //Movemos a la posicion de inicio
@@ -42,11 +46,13 @@ public class EOL : MonoBehaviour
                 //Desactivamos el nivel actual
                 ThisLevel.SetActive(false);
                 //Destroy(collider.gameObject);
+                
             }
             else
             {
                 //Movemos a la posicion de inicio
                 Debug.Log("You Win!");
+                victoryEffect.Play();
                 
                 //End Screen Effects!
             }
