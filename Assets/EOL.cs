@@ -17,6 +17,7 @@ public class EOL : MonoBehaviour
     void Start()
     {
         gameControlScript = this.GetComponentInParent<GameControl>();
+        victoryEffect.Stop();
     }
 
     // Update is called once per frame
@@ -48,7 +49,7 @@ public class EOL : MonoBehaviour
                 //Destroy(collider.gameObject);
                 
             }
-            else
+            else if(isLastLevel)
             {
                 //Movemos a la posicion de inicio
                 Debug.Log("You Win!");

@@ -39,7 +39,7 @@ public class GameControl : MonoBehaviour
             level.gameObject.SetActive(false);
         }
         //Activamos el nivel 0. 
-        Levels[0].SetActive(true);
+        Levels[2].SetActive(true);
        
         score = 0;
         highScore = 0;
@@ -65,7 +65,7 @@ public class GameControl : MonoBehaviour
 
         LevelOverTimer = seconds;
 
-        if ( LevelOverTimer >= 15)
+        if ( LevelOverTimer >= 45)
         {
             Debug.Log("Game Over!");
             Levels[getActiveLevel()].SetActive(false);
@@ -133,6 +133,12 @@ public class GameControl : MonoBehaviour
         
         
         restartbuttonAnim.Play("ButtonSlide");
+    }
+
+    public void Victory()
+    {
+        timerRunning = false;
+
     }
 
     public void RestartGame()
