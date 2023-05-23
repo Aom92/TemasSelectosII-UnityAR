@@ -54,6 +54,8 @@ public class EOL : MonoBehaviour
                 //Movemos a la posicion de inicio
                 Debug.Log("You Win!");
                 victoryEffect.Play();
+                victoryEffect.GetComponent<Renderer>().enabled =false;
+                this.SendMessageUpwards("Victory");
                 
                 //End Screen Effects!
             }

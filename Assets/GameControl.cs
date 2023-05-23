@@ -8,7 +8,7 @@ public class GameControl : MonoBehaviour
 {
 
     public GameObject[] Levels;
-    public Animator gameoverAnim;
+    public Animator OverlayAnimations;
     public Animator restartbuttonAnim;
     
     public int score = 0;
@@ -39,7 +39,7 @@ public class GameControl : MonoBehaviour
             level.gameObject.SetActive(false);
         }
         //Activamos el nivel 0. 
-        Levels[2].SetActive(true);
+        Levels[0].SetActive(true);
        
         score = 0;
         highScore = 0;
@@ -79,7 +79,7 @@ public class GameControl : MonoBehaviour
 
         //Debug.Log("Score: " + score);
         endTime.text = "Time: " + minutes + ":" + seconds + "." + milis;
-        scoreText.text = "Score: " + score + "\n \n" + minutes + ":" + seconds + "." + milis;
+        scoreText.text = "Score: " + score + "\nTiempo: " + minutes + ":" + seconds + "." + milis;
     }
 
     public void AddScore(int points)
@@ -126,7 +126,7 @@ public class GameControl : MonoBehaviour
     public void GameOver()
     {
 
-        gameoverAnim.Play("FadeOut");
+        OverlayAnimations.Play("FadeOut");
 
         endRetryCount.text = "Fails: " + fails;
         endScore.text = "Score: " + score;
@@ -138,6 +138,8 @@ public class GameControl : MonoBehaviour
     public void Victory()
     {
         timerRunning = false;
+        OverlayAnimations.Play("Victory");
+        restartbuttonAnim.Play("ButtonSlide");
 
     }
 
